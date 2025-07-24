@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minha Assessoria</title>
+  <meta name="description" content="Segunda via de boleto rápida e fácil com atendimento personalizado. Minha Assessoria, sua tranquilidade financeira." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-fundo text-gray-900 transition-colors duration-500">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-customBlue text-white rounded-full flex justify-center items-center" aria-hidden="true">
+          <i class="fas fa-heartbeat text-lg"></i>
+        </div>
+        <h1 class="text-2xl font-bold text-customBlue uppercase tracking-wide">Minha Assessoria</h1>
+      </div>
+
+      <!-- Menu desktop -->
+      <nav role="navigation" class="hidden md:flex gap-8 text-gray-600 font-medium">
+        <a href="#servicos" class="hover:text-customBlue focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">Serviços</a>
+        <a href="#sobre" class="hover:text-customBlue focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">Sobre</a>
+        <a href="#contato" class="hover:text-customBlue focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">Contato</a>
+      </nav>
+
+      <!-- Botão WhatsApp desktop -->
+      <a href="https://wa.me/5521973732903" 
+         class="hidden md:flex bg-customBlue text-white px-5 py-2 rounded-full font-semibold hover:bg-customBlueDark transition focus:outline-none focus:ring-2 focus:ring-customBlueDark"
+         aria-label="Abrir WhatsApp"
+         rel="noopener noreferrer">
+        WhatsApp
+      </a>
+
+      <!-- Botão Hamburger Mobile -->
+      <button id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu" class="md:hidden focus:outline-none focus:ring-2 focus:ring-customBlue rounded">
+        <svg class="w-7 h-7 text-customBlue" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu Mobile (oculto por padrão) -->
+    <nav id="menu" role="navigation" class="hidden md:hidden bg-white border-t border-gray-200">
+      <ul class="flex flex-col px-4 py-2 space-y-2 text-gray-600 font-medium">
+        <li><a href="#servicos" class="block py-2 hover:text-customBlue focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">Serviços</a></li>
+        <li><a href="#sobre" class="block py-2 hover:text-customBlue focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">Sobre</a></li>
+        <li><a href="#contato" class="block py-2 hover:text-customBlue focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">Contato</a></li>
+        <li>
+          <a href="https://wa.me/5521973732903" rel="noopener noreferrer" 
+             class="block bg-customBlue text-white text-center py-2 rounded font-semibold hover:bg-customBlueDark transition focus:outline-none focus:ring-2 focus:ring-customBlueDark" 
+             aria-label="Abrir WhatsApp">
+            WhatsApp
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Seção Hero -->
+  <section class="bg-customBlue text-white">
+    <div class="max-w-7xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Segunda via do seu boleto</h2>
+        <p class="text-lg opacity-90 mb-8">Informe seu CPF ou CNPJ abaixo e receba a segunda via pelo WhatsApp.</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 max-w-md">
+          <input id="documento" type="text" placeholder="CPF ou CNPJ" 
+                 class="flex-grow px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-customBlue" />
+
+          <button id="btnSolicitar" 
+                  class="bg-white text-customBlue font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition focus:outline-none focus:ring-2 focus:ring-customBlue inline-flex items-center gap-2"
+                  aria-label="Solicitar segunda via via WhatsApp">
+            <i class="fab fa-whatsapp text-lg"></i> Solicitar via WhatsApp
+          </button>
+        </div>
+
+        <p id="statusMsg" class="mt-3 text-red-600 font-medium"></p>
+      </div>
+      <div class="flex justify-center">
+        <img src="atendimento-removebg-preview.png" alt="Atendimento personalizado para segunda via de boleto" 
+             class="rounded-xl shadow-card w-full max-w-md" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Cards -->
+  <section id="servicos" class="py-20 bg-white transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-customBlue mb-2">Nossos Serviços</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Cuidamos da sua tranquilidade financeira com agilidade e atenção.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-fundo p-6 rounded-xl shadow-card text-center transition-transform duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1">
+          <i class="fas fa-file-invoice-dollar text-3xl text-customBlue mb-4"></i>
+          <h3 class="font-bold text-lg mb-2">Segunda Via</h3>
+          <p class="text-gray-600 text-sm">Receba seu boleto em instantes pelo WhatsApp.</p>
+        </div>
+        <div class="bg-fundo p-6 rounded-xl shadow-card text-center transition-transform duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1">
+          <i class="fas fa-user-shield text-3xl text-customBlue mb-4"></i>
+          <h3 class="font-bold text-lg mb-2">Suporte Personalizado</h3>
+          <p class="text-gray-600 text-sm">Atendimento humano e eficiente para tirar dúvidas.</p>
+        </div>
+        <div class="bg-fundo p-6 rounded-xl shadow-card text-center transition-transform duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1">
+          <i class="fas fa-id-card-alt text-3xl text-customBlue mb-4"></i>
+          <h3 class="font-bold text-lg mb-2">Portal do Cliente</h3>
+          <p class="text-gray-600 text-sm">Acompanhe suas informações com segurança.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botão WhatsApp flutuante -->
+  <div class="fixed bottom-6 right-6 z-50 pulse-animation" title="Abrir WhatsApp">
+    <a href="https://wa.me/5521973732903" 
+       class="bg-customBlue text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-customBlueDark transition focus:outline-none focus:ring-2 focus:ring-customBlueDark"
+       aria-label="Abrir WhatsApp" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Seção Quem Somos -->
+  <section id="sobre" class="py-20 bg-gray-100 transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-customBlue mb-4">Quem Somos</h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          Somos especialistas em facilitar o seu dia a dia financeiro com atendimento ágil e humanizado. Nossa missão é tornar simples a emissão da sua segunda via e garantir suporte eficiente sempre que você precisar.
+        </p>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Com anos de experiência, construímos uma relação de confiança com nossos clientes, oferecendo soluções acessíveis e personalizadas para cada necessidade.
+        </p>
+      </div>
+      <div class="flex justify-center">
+        <img src="equipe.jpg" alt="Equipe de atendimento da Minha Assessoria" 
+             class="rounded-xl shadow-card w-full max-w-md" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-customBlueDark text-white pt-12 pb-6 mt-16">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="font-bold text-xl mb-3">Minha Assessoria</h3>
+        <p class="text-sm">CNPJ: 00.000.000/0001-00<br/>Atendendo com confiança e transparência.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Links Úteis</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#servicos" class="hover:underline focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">2ª via de boleto</a></li>
+          <li><a href="#servicos" class="hover:underline focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">Faturas</a></li>
+          <li><a href="#servicos" class="hover:underline focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">Suporte</a></li>
+          <li><a href="#contato" class="hover:underline focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Atendimento</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="tel:+5521973732903" class="focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">(+55) 21 97373‑2903</a></li>
+          <li><a href="mailto:contato@minhaassessoria.com" class="focus:outline-none focus:ring-2 focus:ring-customBlue rounded transition">contato@minhaassessoria.com</a></li>
+          <li>Seg a Sex: 8h às 18h</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Redes Sociais</h4>
+        <div class="flex space-x-4 text-xl">
+          <a href="#" aria-label="Facebook" class="hover:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram" class="hover:text-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400 rounded"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn" class="hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="YouTube" class="hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 rounded"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center text-sm text-blue-100 mt-8 border-t border-customBlueDark pt-4 select-none">
+      Minha Assessoria © 2025 - Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/4ad66f0e29.js" crossorigin="anonymous" defer></script>
+
+  <!-- Script JS externo -->
+  <script src="script.js" defer></script>
+</body>
+</html>
+<style>
+  /* Variáveis de cores */
+  :root {
+    --custom-blue: #1d4ed8; /* Azul personalizado */
+    --custom-blue-dark: #1e40af; /* Azul escuro personalizado */
+    --fundo: #f3f4f6; /* Fundo claro */
+  }
+
+  /* Estilos globais */
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--fundo);
+  }
+
+  .bg-customBlue {
+    background-color: var(--custom-blue);
+  }
+
+  .bg-customBlueDark {
+    background-color: var(--custom-blue-dark);
+  }
+
+  .text-customBlue {
+    color: var(--custom-blue);
+  }
+
+  .text-customBlueDark {
+    color: var(--custom-blue-dark);
+  } 
