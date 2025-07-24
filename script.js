@@ -38,3 +38,34 @@ btnSolicitar.style.cssText = `
   cursor: pointer;
   transition: background-color 0.3s ease;
 `;
+// Adiciona hover effect ao botão
+btnSolicitar.addEventListener("mouseover", () => { 
+  btnSolicitar.style.backgroundColor = "#0056b3"; // Cor mais escura no hover
+});
+btnSolicitar.addEventListener("mouseout", () => {
+  btnSolicitar.style.backgroundColor = "var(--custom-blue)"; // Volta à cor original
+});
+// Adiciona mensagem de status  
+const btnSolicitar = document.getElementById("btnSolicitar");
+const inputDocumento = document.getElementById("documento");
+const statusMsg = document.getElementById("statusMsg");
+
+btnSolicitar.addEventListener("click", () => {
+  const doc = inputDocumento.value.trim();
+
+  if (doc.length < 11) {
+    statusMsg.textContent = "Por favor, insira um CPF ou CNPJ válido.";
+    return;
+  }
+
+  const mensagem = encodeURIComponent(`Olá, gostaria de receber a segunda via do boleto para o documento: ${doc}`);
+  const numeroWhats = "5521973732903";
+  const urlWhats = `https://wa.me/${numeroWhats}?text=${mensagem}`;
+
+  window.open(urlWhats, "_blank");
+
+  inputDocumento.value = "";
+  statusMsg.textContent = "";
+});
+// Adiciona estilo ao botão
+btnSolicitar.style.cssText = `
