@@ -17,6 +17,9 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- FontAwesome (SEM defer para garantir ícones carregados) -->
+  <script src="https://kit.fontawesome.com/4ad66f0e29.js" crossorigin="anonymous"></script>
+
   <!-- CSS externo -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -44,7 +47,7 @@
          class="hidden md:flex bg-customBlue text-white px-5 py-2 rounded-full font-semibold hover:bg-customBlueDark transition focus:outline-none focus:ring-2 focus:ring-customBlueDark"
          aria-label="Abrir WhatsApp"
          rel="noopener noreferrer">
-        WhatsApp
+        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
       </a>
 
       <!-- Botão Hamburger Mobile -->
@@ -65,7 +68,7 @@
           <a href="https://wa.me/5521973732903" rel="noopener noreferrer" 
              class="block bg-customBlue text-white text-center py-2 rounded font-semibold hover:bg-customBlueDark transition focus:outline-none focus:ring-2 focus:ring-customBlueDark" 
              aria-label="Abrir WhatsApp">
-            WhatsApp
+            <i class="fab fa-whatsapp mr-2"></i> WhatsApp
           </a>
         </li>
       </ul>
@@ -194,9 +197,6 @@
     </div>
   </footer>
 
-  <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/4ad66f0e29.js" crossorigin="anonymous" defer></script>
-
   <!-- Script JS externo -->
   <script src="script.js" defer></script>
 </body>
@@ -204,29 +204,20 @@
 <style>
   /* Variáveis de cores */
   :root {
-    --custom-blue: #1d4ed8; /* Azul personalizado */
-    --custom-blue-dark: #1e40af; /* Azul escuro personalizado */
-    --fundo: #f3f4f6; /* Fundo claro */
+    --custom-blue: #007bff;
+    --custom-blue-dark: #0056b3;
+    --custom-gray: #f8f9fa;
+    --custom-blue-light: #e9f5ff;
+    --custom-blue-lighter: #cceeff;
+    --custom-blue-darkest: #003366;
   }
 
-  /* Estilos globais */
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--fundo);
+  /* Fundo personalizado */
+  .bg-fundo {
+    background-color: var(--custom-gray);
   }
 
-  .bg-customBlue {
-    background-color: var(--custom-blue);
-  }
-
-  .bg-customBlueDark {
-    background-color: var(--custom-blue-dark);
-  }
-
+  /* Texto personalizado */
   .text-customBlue {
     color: var(--custom-blue);
   }
-
-  .text-customBlueDark {
-    color: var(--custom-blue-dark);
-  } 
