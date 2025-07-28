@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Minha Assessoria</title>
-  <meta name="description" content="Segunda via de boleto rápida e fácil com atendimento personalizado.">
+  <meta name="description" content="Segunda via de boleto rápida e fácil com atendimento personalizado." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,8 +17,14 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/4ad66f0e29.js" crossorigin="anonymous"></script>
+  <!-- FontAwesome CSS via CDN (substitui o script kit) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-p1m9T0WJZ9DXoLKUXVqfJczmX2f8f6k6wtP5Z0qhcNuO0JauPb5QlEHeLd1V5QfCqO6FQJbZpkB0j6ybH2f6VA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
   <!-- CSS Externo -->
   <link rel="stylesheet" href="style.css" />
@@ -26,123 +32,144 @@
 <body class="bg-fundo text-gray-900">
 
   <!-- Header -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
+  <header class="bg-white shadow-sm sticky top-0 z-50" role="banner">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <div class="w-12 h-12 bg-customBlue text-white rounded-full flex justify-center items-center">
+        <div class="w-12 h-12 bg-customBlue text-white rounded-full flex justify-center items-center" aria-hidden="true">
           <i class="fas fa-heartbeat text-lg"></i>
         </div>
         <h1 class="text-2xl font-bold text-customBlue uppercase">Minha Assessoria</h1>
       </div>
-      <nav class="hidden md:flex gap-6 text-gray-600 font-medium">
-        <a href="#servicos" class="hover:text-customBlue">Serviços</a>
-        <a href="#sobre" class="hover:text-customBlue">Sobre</a>
-        <a href="#contato" class="hover:text-customBlue">Contato</a>
+      <nav class="hidden md:flex gap-6 text-gray-600 font-medium" role="navigation" aria-label="Menu principal">
+        <a href="#servicos" class="hover:text-customBlue" aria-label="Ir para Serviços">Serviços</a>
+        <a href="#sobre" class="hover:text-customBlue" aria-label="Ir para Sobre">Sobre</a>
+        <a href="#contato" class="hover:text-customBlue" aria-label="Ir para Contato">Contato</a>
       </nav>
-      <a href="https://wa.me/5521973732903" target="_blank" rel="noopener" class="hidden md:flex items-center gap-2 bg-customBlue text-white px-4 py-2 rounded-full hover:bg-customBlueDark transition">
+      <a href="https://wa.me/5521973732903" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp para contato" class="hidden md:flex items-center gap-2 bg-customBlue text-white px-4 py-2 rounded-full hover:bg-customBlueDark transition">
         <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-customBlue text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h2 class="text-4xl font-bold mb-4">Segunda via do seu boleto</h2>
-        <p class="text-lg mb-6">Digite seu CPF ou CNPJ e receba o boleto pelo WhatsApp.</p>
-        <div class="flex flex-col sm:flex-row gap-4 max-w-md">
-          <input id="documento" type="text" placeholder="CPF ou CNPJ" class="flex-1 px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-customBlue" />
-          <button id="btnSolicitar" class="bg-white text-customBlue font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition inline-flex items-center gap-2">
-            <i class="fab fa-whatsapp text-lg"></i> Solicitar
-          </button>
+  <main>
+    <!-- Hero -->
+    <section class="bg-customBlue text-white py-20" aria-labelledby="hero-title">
+      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 id="hero-title" class="text-4xl font-bold mb-4">Segunda via do seu boleto</h2>
+          <p class="text-lg mb-6">Digite seu CPF ou CNPJ e receba o boleto pelo WhatsApp.</p>
+          <div class="flex flex-col sm:flex-row gap-4 max-w-md">
+            <input id="documento" type="text" placeholder="CPF ou CNPJ" class="flex-1 px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-customBlue" aria-describedby="statusMsg" />
+            <button id="btnSolicitar" class="bg-white text-customBlue font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition inline-flex items-center gap-2" aria-label="Solicitar segunda via do boleto via WhatsApp">
+              <i class="fab fa-whatsapp text-lg"></i> Solicitar
+            </button>
+          </div>
+          <p id="statusMsg" class="mt-3 text-red-600 font-medium" role="alert" aria-live="assertive"></p>
         </div>
-        <p id="statusMsg" class="mt-3 text-red-600 font-medium"></p>
+        <div class="flex justify-center">
+          <img
+            src="atendimento-removebg-preview.png"
+            alt="Atendimento personalizado"
+            class="rounded-xl shadow-card w-full max-w-md"
+            loading="lazy"
+            width="400"
+            height="400"
+          />
+        </div>
       </div>
-      <div class="flex justify-center">
-        <img src="atendimento-removebg-preview.png" alt="Atendimento personalizado" class="rounded-xl shadow-card w-full max-w-md" loading="lazy" />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Serviços -->
-  <section id="servicos" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold text-customBlue mb-4">Nossos Serviços</h2>
-      <p class="text-gray-600 max-w-xl mx-auto mb-10">Oferecemos soluções rápidas e confiáveis para seu dia a dia financeiro.</p>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-fundo p-6 rounded-xl shadow-card hover:shadow-lg hover:-translate-y-1 transition">
-          <i class="fas fa-file-invoice-dollar text-3xl text-customBlue mb-4"></i>
-          <h3 class="font-bold mb-2">Segunda Via</h3>
-          <p class="text-sm text-gray-600">Receba seu boleto atualizado em segundos via WhatsApp.</p>
-        </div>
-        <div class="bg-fundo p-6 rounded-xl shadow-card hover:shadow-lg hover:-translate-y-1 transition">
-          <i class="fas fa-headset text-3xl text-customBlue mb-4"></i>
-          <h3 class="font-bold mb-2">Atendimento Rápido</h3>
-          <p class="text-sm text-gray-600">Fale com um atendente real e tire suas dúvidas com facilidade.</p>
-        </div>
-        <div class="bg-fundo p-6 rounded-xl shadow-card hover:shadow-lg hover:-translate-y-1 transition">
-          <i class="fas fa-shield-alt text-3xl text-customBlue mb-4"></i>
-          <h3 class="font-bold mb-2">Segurança Garantida</h3>
-          <p class="text-sm text-gray-600">Seus dados estão protegidos com tecnologia confiável.</p>
+    <!-- Serviços -->
+    <section id="servicos" class="py-20 bg-white" aria-labelledby="servicos-title">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 id="servicos-title" class="text-3xl font-bold text-customBlue mb-4">Nossos Serviços</h2>
+        <p class="text-gray-600 max-w-xl mx-auto mb-10">Oferecemos soluções rápidas e confiáveis para seu dia a dia financeiro.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-fundo p-6 rounded-xl shadow-card hover:shadow-lg hover:-translate-y-1 transition" tabindex="0" role="group" aria-label="Serviço Segunda Via">
+            <i class="fas fa-file-invoice-dollar text-3xl text-customBlue mb-4" aria-hidden="true"></i>
+            <h3 class="font-bold mb-2">Segunda Via</h3>
+            <p class="text-sm text-gray-600">Receba seu boleto atualizado em segundos via WhatsApp.</p>
+          </div>
+          <div class="bg-fundo p-6 rounded-xl shadow-card hover:shadow-lg hover:-translate-y-1 transition" tabindex="0" role="group" aria-label="Serviço Atendimento Rápido">
+            <i class="fas fa-headset text-3xl text-customBlue mb-4" aria-hidden="true"></i>
+            <h3 class="font-bold mb-2">Atendimento Rápido</h3>
+            <p class="text-sm text-gray-600">Fale com um atendente real e tire suas dúvidas com facilidade.</p>
+          </div>
+          <div class="bg-fundo p-6 rounded-xl shadow-card hover:shadow-lg hover:-translate-y-1 transition" tabindex="0" role="group" aria-label="Serviço Segurança Garantida">
+            <i class="fas fa-shield-alt text-3xl text-customBlue mb-4" aria-hidden="true"></i>
+            <h3 class="font-bold mb-2">Segurança Garantida</h3>
+            <p class="text-sm text-gray-600">Seus dados estão protegidos com tecnologia confiável.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Sobre Nós -->
-  <section id="sobre" class="py-20 bg-gray-100">
-    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h2 class="text-3xl font-bold text-customBlue mb-4">Quem Somos</h2>
-        <p class="text-lg text-gray-700 leading-relaxed mb-4">
-          Somos uma assessoria comprometida com seu bem-estar financeiro, oferecendo suporte humano, prático e digital para facilitar sua rotina.
-        </p>
-        <p class="text-lg text-gray-700 leading-relaxed">
-          Atendemos com empatia, rapidez e total segurança, tornando simples a emissão de boletos e outros serviços.
-        </p>
+    <!-- Sobre Nós -->
+    <section id="sobre" class="py-20 bg-gray-100" aria-labelledby="sobre-title">
+      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 id="sobre-title" class="text-3xl font-bold text-customBlue mb-4">Quem Somos</h2>
+          <p class="text-lg text-gray-700 leading-relaxed mb-4">
+            Somos uma assessoria comprometida com seu bem-estar financeiro, oferecendo suporte humano, prático e digital para facilitar sua rotina.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Atendemos com empatia, rapidez e total segurança, tornando simples a emissão de boletos e outros serviços.
+          </p>
+        </div>
+        <div class="flex justify-center">
+          <img
+            src="center.png"
+            alt="Nossa equipe"
+            class="rounded-xl shadow-card w-full max-w-md"
+            loading="lazy"
+            width="400"
+            height="400"
+          />
+        </div>
       </div>
-      <div class="flex justify-center">
-        <img src="center.png" alt="Nossa equipe" class="rounded-xl shadow-card w-full max-w-md" loading="lazy" />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contato -->
-  <section id="contato" class="py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold text-customBlue mb-6">Fale Conosco</h2>
-      <p class="text-lg text-gray-700 mb-4">Entre em contato pelo WhatsApp ou email. Estamos prontos para te ajudar!</p>
-      <div class="flex justify-center gap-4 mt-6">
-        <a href="https://wa.me/5521973732903" target="_blank" class="bg-customBlue text-white px-6 py-3 rounded-full hover:bg-customBlueDark transition inline-flex items-center gap-2">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-        
+    <!-- Contato -->
+    <section id="contato" class="py-20 bg-white" aria-labelledby="contato-title">
+      <div class="max-w-3xl mx-auto px-4 text-center">
+        <h2 id="contato-title" class="text-3xl font-bold text-customBlue mb-6">Fale Conosco</h2>
+        <p class="text-lg text-gray-700 mb-4">Entre em contato pelo WhatsApp ou email. Estamos prontos para te ajudar!</p>
+        <div class="flex justify-center gap-4 mt-6">
+          <a
+            href="https://wa.me/5521973732903"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir WhatsApp para contato"
+            class="bg-customBlue text-white px-6 py-3 rounded-full hover:bg-customBlueDark transition inline-flex items-center gap-2"
+          >
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Rodapé -->
-  <footer class="bg-customBlueDark text-white py-10">
+  <footer class="bg-customBlueDark text-white py-10" role="contentinfo">
     <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-10 text-sm">
       <div>
         <h3 class="font-bold text-lg mb-3">Minha Assessoria</h3>
-        <p>CNPJ: 00.000.000/0001-00<br>Atendendo com responsabilidade e agilidade.</p>
+        <p>CNPJ: 00.000.000/0001-00<br />Atendendo com responsabilidade e agilidade.</p>
       </div>
       <div>
         <h4 class="font-semibold mb-3">Links Rápidos</h4>
         <ul class="space-y-1">
-          <li><a href="#servicos" class="hover:underline">Serviços</a></li>
-          <li><a href="#sobre" class="hover:underline">Quem Somos</a></li>
-          <li><a href="#contato" class="hover:underline">Contato</a></li>
+          <li><a href="#servicos" class="hover:underline" aria-label="Ir para Serviços">Serviços</a></li>
+          <li><a href="#sobre" class="hover:underline" aria-label="Ir para Quem Somos">Quem Somos</a></li>
+          <li><a href="#contato" class="hover:underline" aria-label="Ir para Contato">Contato</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="font-semibold mb-3">Redes Sociais</h4>
+        
         <div class="flex space-x-4 text-lg">
-          <a href="#" class="hover:text-blue-300"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="hover:text-pink-400"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="hover:text-blue-300" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="hover:text-pink-400" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-blue-400" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
       </div>
     </div>
@@ -155,3 +182,21 @@
   <script src="script.js" defer></script>
 </body>
 </html>
+<script>
+  // Script para solicitar segunda via do boleto
+  document.getElementById('btnSolicitar').addEventListener('click', function() {
+    const documento = document.getElementById('documento').value.trim();
+    const statusMsg = document.getElementById('statusMsg');
+
+    if (!documento) {
+      statusMsg.textContent = 'Por favor, insira um CPF ou CNPJ válido.';
+      return;
+    }
+
+    // Limpa a mensagem de status
+    statusMsg.textContent = '';
+
+    // Redireciona para o WhatsApp com o número e mensagem pré-definidos
+    const whatsappUrl = `https://wa.me/5521973732903?text=Olá, gostaria de solicitar a segunda via do boleto para o documento: ${documento}`;
+    window.open(whatsappUrl, '_blank');
+  });
