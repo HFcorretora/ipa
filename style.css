@@ -1,17 +1,29 @@
+/* ===========================
+   Variáveis CSS globais
+   =========================== */
 :root {
   --custom-blue: #1e90ff;          /* Azul DodgerBlue vivo */
   --custom-blue-dark: #187bcd;     /* Azul mais escuro para hover */
   --custom-blue-light: #6ec1ff;    /* Azul claro para destaques */
   --background-light: #ffffff;     /* Fundo branco */
+  --text-default: #333333;         /* Cor padrão do texto */
+  --shadow-card: rgba(30, 144, 255, 0.15);
 }
 
+/* ===========================
+   Reset e corpo
+   =========================== */
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--background-light);
-  color: #333;
+  color: var(--text-default);
+  margin: 0;
+  padding: 0;
 }
 
-/* Fundo personalizado */
+/* ===========================
+   Fundos personalizados
+   =========================== */
 .bg-fundo {
   background-color: var(--background-light);
 }
@@ -24,6 +36,9 @@ body {
   background-color: var(--custom-blue-dark);
 }
 
+/* ===========================
+   Cores de texto customizadas
+   =========================== */
 .text-customBlue {
   color: var(--custom-blue);
 }
@@ -36,16 +51,22 @@ body {
   color: var(--custom-blue-dark);
 }
 
-/* Botões */
+/* ===========================
+   Botões - classe utilitária
+   =========================== */
 .btn-customBlue {
   background-color: var(--custom-blue);
-  color: #fff;
+  color: var(--background-light);
   padding: 0.6rem 1.2rem;
   border-radius: 0.5rem;
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
 }
 
 .btn-customBlue:hover,
@@ -55,12 +76,23 @@ body {
   box-shadow: 0 0 8px var(--custom-blue-light);
 }
 
-/* Sombra para cards */
+/* ===========================
+   Sombra para cards
+   =========================== */
 .shadow-card {
-  box-shadow: 0 8px 20px rgba(30, 144, 255, 0.15);
+  box-shadow: 0 8px 20px var(--shadow-card);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Exemplo de animação pulse com a cor azul */
+.shadow-card:hover,
+.shadow-card:focus-within {
+  box-shadow: 0 12px 25px var(--shadow-card);
+  transform: translateY(-4px);
+}
+
+/* ===========================
+   Animações
+   =========================== */
 .pulse-animation {
   animation: pulse 2s infinite;
 }
@@ -76,3 +108,48 @@ body {
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
+
+/* ===========================
+   Inputs
+   =========================== */
+input[type="text"] {
+  padding: 0.75rem 1rem;
+  border-radius: 9999px; /* arredondado igual ao botão */
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  color: var(--text-default);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: var(--custom-blue);
+  outline: none;
+  box-shadow: 0 0 8px var(--custom-blue-light);
+}
+
+/* ===========================
+   Responsividade e melhorias
+   =========================== */
+/* (Mantidas pelas classes Tailwind, mas caso queira pode customizar aqui) */
+
+/* ===========================
+   Outras melhorias
+   =========================== */
+/* Evita que textos e ícones dentro de botões sejam selecionados acidentalmente */
+button, a {
+  user-select: none;
+}
+/* Melhora a acessibilidade dos links */
+a {
+  text-decoration: none;
+  color: var(--custom-blue);
+  transition: color 0.3s ease;
+}
+a:hover,
+a:focus {
+  color: var(--custom-blue-dark);
+  text-decoration: underline;
+}
+/* ===========================
+   Classes utilitárias adicionais
+   =========================== */
