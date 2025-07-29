@@ -17,7 +17,7 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- FontAwesome CSS via CDN (substitui o script kit) -->
+  <!-- FontAwesome CSS -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -60,7 +60,7 @@
           <p class="text-lg mb-6">Digite seu CPF ou CNPJ e receba o boleto pelo WhatsApp.</p>
           <div class="flex flex-col sm:flex-row gap-4 max-w-md">
             <input id="documento" type="text" placeholder="CPF ou CNPJ" class="flex-1 px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-customBlue" aria-describedby="statusMsg" />
-            <button id="btnSolicitar" class="bg-white text-customBlue font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition inline-flex items-center gap-2" aria-label="Solicitar segunda via do boleto via WhatsApp">
+            <button id="btnSolicitar" class="btn-customBlue" aria-label="Solicitar segunda via do boleto via WhatsApp">
               <i class="fab fa-whatsapp text-lg"></i> Solicitar
             </button>
           </div>
@@ -165,7 +165,6 @@
         </ul>
       </div>
       <div>
-        
         <div class="flex space-x-4 text-lg">
           <a href="#" class="hover:text-blue-300" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
           <a href="#" class="hover:text-pink-400" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -180,23 +179,22 @@
 
   <!-- JS externo -->
   <script src="script.js" defer></script>
+
+  <!-- Script inline para o botão Solicitar -->
+  <script>
+    document.getElementById('btnSolicitar').addEventListener('click', function() {
+      const documento = document.getElementById('documento').value.trim();
+      const statusMsg = document.getElementById('statusMsg');
+
+      if (!documento) {
+        statusMsg.textContent = 'Por favor, insira um CPF ou CNPJ válido.';
+        return;
+      }
+
+      statusMsg.textContent = '';
+      const whatsappUrl = `https://wa.me/5521973732903?text=Olá, gostaria de solicitar a segunda via do boleto para o documento: ${documento}`;
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
 </body>
 </html>
-<script>
-  // Script para solicitar segunda via do boleto
-  document.getElementById('btnSolicitar').addEventListener('click', function() {
-    const documento = document.getElementById('documento').value.trim();
-    const statusMsg = document.getElementById('statusMsg');
-
-    if (!documento) {
-      statusMsg.textContent = 'Por favor, insira um CPF ou CNPJ válido.';
-      return;
-    }
-
-    // Limpa a mensagem de status
-    statusMsg.textContent = '';
-
-    // Redireciona para o WhatsApp com o número e mensagem pré-definidos
-    const whatsappUrl = `https://wa.me/5521973732903?text=Olá, gostaria de solicitar a segunda via do boleto para o documento: ${documento}`;
-    window.open(whatsappUrl, '_blank');
-  });
