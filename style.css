@@ -54,9 +54,10 @@ body {
 /* ===========================
    Botões - classe utilitária
    =========================== */
-.btn-customBlue {
+.btn-customBlue,
+#btnSolicitar {
   background-color: var(--custom-blue);
-  color: var(--background-light);
+  color: var(--background-blue);
   padding: 0.6rem 1.2rem;
   border-radius: 0.5rem;
   font-weight: 600;
@@ -70,7 +71,9 @@ body {
 }
 
 .btn-customBlue:hover,
-.btn-customBlue:focus {
+.btn-customBlue:focus,
+#btnSolicitar:hover,
+#btnSolicitar:focus {
   background-color: var(--custom-blue-dark);
   outline: none;
   box-shadow: 0 0 8px var(--custom-blue-light);
@@ -139,17 +142,16 @@ input[type="text"]:focus {
 button, a {
   user-select: none;
 }
+
 /* Melhora a acessibilidade dos links */
 a {
   text-decoration: none;
   color: var(--custom-blue);
   transition: color 0.3s ease;
 }
+
 a:hover,
 a:focus {
   color: var(--custom-blue-dark);
   text-decoration: underline;
 }
-/* ===========================
-   Classes utilitárias adicionais
-   =========================== */
