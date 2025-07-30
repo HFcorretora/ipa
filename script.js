@@ -3,17 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("documento");
   const msg = document.getElementById("statusMsg");
 
-  // Remove estilos inline do botão e usa classe CSS para estilo (assumindo .btn-customBlue)
-  // Certifique-se que o botão no HTML tenha essa classe para manter estilo consistente.
-  btn.classList.add("btn-customBlue");
+  if (btn) {
+    btn.classList.add("btn-customBlue");
+    btn.innerHTML = `<i class="fab fa-whatsapp text-lg"></i> Solicitar`;
+  }
 
-  // Função para validar CPF ou CNPJ (simplificada)
   function validarDocumento(doc) {
     const apenasDigitos = doc.replace(/\D/g, '');
     return (apenasDigitos.length === 11 || apenasDigitos.length === 14);
   }
 
-  // Função para mostrar mensagem de status
   function mostrarMensagem(texto, tipo = "erro") {
     msg.textContent = texto;
     msg.style.color = tipo === "erro" ? "red" : "green";
@@ -24,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Limpa mensagem após 5 segundos
   function limparMensagem() {
     setTimeout(() => {
       msg.textContent = "";
@@ -41,16 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Bloqueia botão para evitar cliques múltiplos
     btn.disabled = true;
     btn.textContent = "Abrindo WhatsApp...";
-    
+
     const numero = "5521973732903";
     const texto = encodeURIComponent(`Olá! Gostaria de receber a 2ª via do boleto para o CPF/CNPJ: ${doc}`);
     const url = `https://wa.me/${numero}?text=${texto}`;
     window.open(url, "_blank");
 
-    // Reseta campo e botão após um curto tempo
     setTimeout(() => {
       input.value = "";
       mostrarMensagem("");
@@ -58,18 +54,43 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.innerHTML = `<i class="fab fa-whatsapp text-lg"></i> Solicitar`;
     }, 2000);
   });
-});
-// Adiciona o ícone do WhatsApp ao botão
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("btnSolicitar");
-  if (btn) {
-    btn.innerHTML = `<i class="fab fa-whatsapp text-lg"></i> Solicitar`;
+
+  // Toggle dark mode
+  const toggleDark = document.getElementById('toggle-dark');
+  if (toggleDark) {
+    toggleDark.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+    });
+  }
+
+  // Aplica estado salvo do dark mode
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark');
+  }
+
+  // Botão voltar ao topo
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Botão flutuante do WhatsApp
+  const whatsappFloat = document.getElementById('whatsapp-float');
+  if (whatsappFloat) {
+    whatsappFloat.addEventListener('click', () => {
+      window.open('https://api.whatsapp.com/send?phone=5521973732903', '_blank');
+    });
   }
 });
-// Adiciona o ícone do WhatsApp ao botão
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("btnSolicitar");
-  if (btn) {
-    btn.innerHTML = `<i class="fab fa-whatsapp text-lg"></i> Solicitar`;
-  }
-});
+// Fim do script.js
