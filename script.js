@@ -93,4 +93,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const whatsappFloat = document.getElementById("whatsapp-float");
+  const numero = "5521973732903"; // seu número com código do país e DDD, sem espaços
+  whatsappFloat.addEventListener("click", () => {
+    window.open(`https://wa.me/${numero}`, "_blank");
+  });
+  // Para acessibilidade, permitir ativar com Enter ou Espaço
+  whatsappFloat.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      whatsappFloat.click();
+    }
+  });
+});
 // Fim do script.js
