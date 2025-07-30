@@ -156,3 +156,111 @@ a:focus {
   text-decoration: underline;
 }
 
+<!-- Botão flutuante do WhatsApp -->
+<a
+  href="https://wa.me/5521973732903"
+  target="_blank"
+  rel="noopener noreferrer"
+  id="whatsapp-float"
+  aria-label="Abrir WhatsApp"
+  class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-lg hover:shadow-xl transition"
+>
+  <i class="fab fa-whatsapp text-custom-blue text-3xl"></i>
+</a>
+
+<style>
+  :root {
+    --custom-blue: #1e90ff;
+  }
+
+  #whatsapp-float {
+    /* fundo branco, sombra e tamanho */
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+  }
+
+  #whatsapp-float i {
+    color: var(--custom-blue);
+  }
+
+  #whatsapp-float:hover {
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.5);
+    transform: scale(1.05);
+  }
+
+  #whatsapp-float:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--custom-blue);
+  }
+</style>
+/* ===========================
+   Estilos adicionais para o WhatsApp
+   =========================== */
+#whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--background-light);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+#whatsapp-float:hover {
+  box-shadow: 0 6px 20px rgba(30, 144, 255, 0.5);
+  transform: scale(1.05);
+}
+#whatsapp-float i {
+  color: var(--custom-blue);
+  font-size: 24px;
+}
+#whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1e90ff; /* azul dodgerblue */
+  color: white;
+  padding: 0.9rem 1rem;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#whatsapp-float:hover {
+  background-color: #1c86ee; /* tom mais escuro do azul */
+}
+#whatsapp-float:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.5);
+}
+#whatsapp-float i {
+  color: white;
+  font-size: 1.5rem;
+}
+/* ===========================
+   Estilos para o botão de solicitar
+   =========================== */
+#btnSolicitar {
+  background-color: var(--custom-blue);
+  color: var(--background-light);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
