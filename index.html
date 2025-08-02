@@ -27,9 +27,50 @@
 
   <!-- CSS Externo -->
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    #documento {
+      transition: border-color 0.3s ease;
+    }
+    #documento.valido {
+      border-color: #22c55e !important;
+      box-shadow: 0 0 5px #22c55e;
+    }
+    #documento.invalido {
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 5px #ef4444;
+    }
+
+    #whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1e90ff;
+      color: white;
+      padding: 0.9rem 1rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      z-index: 1000;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+    #whatsapp-float:hover {
+      background-color: #1c86ee;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(30, 144, 255, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(30, 144, 255, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(30, 144, 255, 0); }
+    }
+  </style>
 </head>
 <body class="bg-fundo text-gray-900">
 
+    <!-- Botão Flutuante WhatsApp -->
+  <a id="whatsapp-float" href="https://wa.me/5521973732903" target="_blank" aria-label="Abrir WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
   <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-50" role="banner">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -66,7 +107,7 @@
         </div>
         <div class="flex justify-center">
           <img
-            src="atendimento-removebg-preview.png"
+            src="assessoria.jpg"
             alt="Atendimento personalizado"
             class="rounded-xl shadow-card w-full max-w-md"
             loading="lazy"
