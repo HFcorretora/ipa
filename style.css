@@ -264,3 +264,26 @@ a:focus {
   gap: 0.5rem;
   user-select: none;
 }
+#btnSolicitar:hover,
+#btnSolicitar:focus {
+  background-color: var(--custom-blue-dark);
+  outline: none;
+  box-shadow: 0 0 8px var(--custom-blue-light);
+}
+/* ===========================
+   Estilos para o botão de solicitar
+   =========================== */
+#btnSolicitar {
+  background-color: var(--custom-blue);
+  color: var(--background-light);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
